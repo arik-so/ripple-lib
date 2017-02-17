@@ -107,6 +107,19 @@ module.exports = {
     normal: require('./prepare-suspended-payment-cancellation'),
     memos: require('./prepare-suspended-payment-cancellation-memos')
   },
+  preparePaymentChannelCreate: {
+    normal: require('./prepare-payment-channel-create'),
+    full: require('./prepare-payment-channel-create-full')
+  },
+  preparePaymentChannelFund: {
+    normal: require('./prepare-payment-channel-fund'),
+    full: require('./prepare-payment-channel-fund-full')
+  },
+  preparePaymentChannelClaim: {
+    normal: require('./prepare-payment-channel-claim'),
+    renew: require('./prepare-payment-channel-claim-renew'),
+    close: require('./prepare-payment-channel-claim-close')
+  },
   prepareTrustline: {
     simple: require('./prepare-trustline-simple.json'),
     frozen: require('./prepare-trustline-frozen.json'),

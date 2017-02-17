@@ -11,6 +11,9 @@ const parseSuspendedPaymentCreation = require('./suspended-payment-creation')
 const parseSuspendedPaymentExecution = require('./suspended-payment-execution')
 const parseSuspendedPaymentCancellation =
   require('./suspended-payment-cancellation')
+const parsePaymentChannelCreate = require('./payment-channel-create')
+const parsePaymentChannelFund = require('./payment-channel-fund')
+const parsePaymentChannelClaim = require('./payment-channel-claim')
 const parseFeeUpdate = require('./fee-update')
 const parseAmendment = require('./amendment')
 
@@ -25,6 +28,9 @@ function parseTransactionType(type) {
     SuspendedPaymentCreate: 'suspendedPaymentCreation',
     SuspendedPaymentFinish: 'suspendedPaymentExecution',
     SuspendedPaymentCancel: 'suspendedPaymentCancellation',
+    PaymentChannelCreate: 'paymentChannelCreate',
+    PaymentChannelFund: 'paymentChannelFund',
+    PaymentChannelClaim: 'paymentChannelClaim',
     SignerListSet: 'settings',
     SetFee: 'feeUpdate',          // pseudo-transaction
     EnableAmendment: 'amendment'  // pseudo-transaction
@@ -43,6 +49,9 @@ function parseTransaction(tx: Object): Object {
     'suspendedPaymentCreation': parseSuspendedPaymentCreation,
     'suspendedPaymentExecution': parseSuspendedPaymentExecution,
     'suspendedPaymentCancellation': parseSuspendedPaymentCancellation,
+    'paymentChannelCreate': parsePaymentChannelCreate,
+    'paymentChannelFund': parsePaymentChannelFund,
+    'paymentChannelClaim': parsePaymentChannelClaim,
     'feeUpdate': parseFeeUpdate,
     'amendment': parseAmendment
   }
